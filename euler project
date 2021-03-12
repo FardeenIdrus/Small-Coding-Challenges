@@ -1,0 +1,20 @@
+#euler 3
+n = "73167176531330624919225119674426574742" # the string of digits
+max = 0                                # the largest product
+number = ""                            # the number that makes the largest product
+ndigits = 5                            # the number of digits to use for each group
+first = 0                              # start at the first digit
+while first < len(n) - (ndigits - 1):  # process each complete set
+    last = first + ndigits             # the last digit in the group
+    num = n[first:last]                # extract the substring of digits
+#        print("Next", num)
+    total = 1;                         # start calculating
+    for i in num[:]:                   #
+        total *= int(i)                # multiply the digits together
+    print("Total", total)
+    if total > max:                 # is this bigger than the current maximum value?
+        max = total                    # yes, so replace it
+        number = num                   # save the number that makes the value
+    first += 1                         # set start index to the next group
+
+print("Biggest:", number, "Product:", max)
