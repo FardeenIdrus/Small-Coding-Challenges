@@ -1,0 +1,227 @@
+#PM 2020 attempt 2
+#task 1
+def task1():
+    while(True):
+        listOfDays= ["Monday", "Saturday", "Sunday","monday","saturday","sunday","tuesday","Tuesday","Wednesday","wednesday","Thursday","thursday","friday","Friday"]
+        day= str(input("Please enter day: "))
+
+        if(day in listOfDays):
+            arrival = str(input("Please enter your hour of arrival: "))
+            arrival= int(arrival[:2])
+
+            maxStay = int(input("Please enter hours for parking: "))
+
+            ################## Check digit calculation by mod 11
+            y = int(input("Do you have a frequent parking number, yes=1  no =2")
+
+            fpn = int(input("Please enter your Frequent Parking Number: "))
+            summ=0
+            position=5
+            while(fpn > 0):
+                digit = fpn  % 10
+                summ = (digit * position) + summ
+                position = position - 1
+                fpn = int(fpn / 10)
+
+            mod = summ % 11
+            cdigit = 11 - mod
+            print(cdigit)
+
+            #################
+
+            if(arrival>= 8 and arrival<= 15):
+                if(cdigit == 4):
+                    discount= 0.9
+                else:
+                    discount=1
+
+                if(day == "Monday" or 'monday' and maxStay <= 2):
+                    pricephour= 10.00
+                elif(day == "tuesday" or "Tuesday" and maxStay <=2):
+                    pricephour= 10.00
+                elif(day == 'wednesday' or 'Wednesday' and maxStay <=2):
+                    pricephour = 10.00
+                elif(day == 'thursday' or "thursday" and maxStay <=2):
+                    pricephour = 10.00
+                elif(day == 'friday' or "friday" and maxStay <=2):
+                    pricephour = 10.00
+
+
+
+                elif(day == "Saturday" or 'saturday' and maxStay <= 4):
+                    pricephour= 3.00
+
+                elif(day == "Sunday" or 'sunday' and maxStay <= 8):
+                    pricephour= 2.00
+
+                else:
+                    print("Max hours allowed: Monday to friday is -2, Saturday-4, Sunday-8")
+                    continue
+
+            elif( maxStay <= 7 and (arrival >= 16 and arrival<= 23) ):
+
+                if(cdigit == 4):
+                    discount= 0.5
+                else:
+                    discount=1
+
+                pricephour= 2.00
+
+            else:
+                print("Parking closed between 00:00 and 07:59")
+                continue
+
+
+            finalPrice = (pricephour * maxStay) * discount
+            print("Final Price of parking: ", finalPrice)
+task1()
+
+
+#TASK 2
+def task2():
+    dayTotal=0
+    for i in range (0,3):
+        listOfDays= ["Monday", "Saturday", "Sunday","sunday","saturday","monday"]
+        day= str(input("Please enter day: "))
+
+        if(day in listOfDays):
+            arrival = str(input("Please enter your hour of arrival: "))
+            arrival= int(arrival[:2])
+
+            maxStay = int(input("Please enter hours for parking: "))
+
+            ################## Check digit calculation by mod 11
+            fpn = int(input("Please enter your Frequent Parking Number: "))
+            summ=0
+            position=5
+            while(fpn > 0):
+                digit = fpn  % 10
+                summ = (digit * position) + summ
+                position = position - 1
+                fpn = int(fpn / 10)
+
+            mod = summ % 11
+            cdigit = 11 - mod
+            print(cdigit)
+
+            #################
+
+
+            if(arrival>= 8 and arrival<= 15):
+                if(cdigit == 4):
+                    discount= 0.9
+                else:
+                    discount=1
+
+                if(day == "Monday" and maxStay <= 2):
+                    pricephour= 10.00
+
+                elif(day == "Saturday" and maxStay <= 4):
+                    pricephour= 3.00
+
+                elif(day == "Sunday" and maxStay <= 8):
+                    pricephour= 2.00
+
+                else:
+                    print("Max hours allowed: Monday-2, Saturday-4, Sunday-8")
+                    continue
+
+            elif( maxStay <= 7 and (arrival >= 16 and arrival<= 23) ):
+
+                if(cdigit == 4):
+                    discount= 0.5
+                else:
+                    discount=1
+
+                pricephour= 2.00
+
+            else:
+                print("Parking closed between 00:00 and 07:59")
+                continue
+
+
+            finalPrice = (pricephour * maxStay) * discount
+            print("Final Price of parking: ", finalPrice)
+
+            customerInput = float(input("Kindly enter the amount paid: "))
+            if(customerInput >= finalPrice):
+                dayTotal = finalPrice + dayTotal
+            else:
+                print("Kindly enter the required amount or more!")
+                continue
+
+    if(time == "00:00"):
+        print("Total for today: ",dayTotal)
+
+    elif(time == "07:59"):
+        dayTotal = 0
+        print("Total for day resetted!")
+
+
+###################Function calls
+task2()
+def task3():
+    while(True):
+        listOfDays= ["Monday", "Saturday", "Sunday",'monday',"saturday","sunday"]
+        day= str(input("Please enter day: "))
+
+        if(day in listOfDays):
+            arrival = str(input("Please enter your hour of arrival: "))
+            arrival= int(arrival[:2])
+
+            maxStay = int(input("Please enter hours for parking: "))
+
+            ################## Check digit calculation by mod 11
+            fpn = int(input("Please enter your Frequent Parking Number: "))
+            summ=0
+            position=5
+            while(fpn > 0):
+                digit = fpn  % 10
+                summ = (digit * position) + summ
+                position = position - 1
+                fpn = int(fpn / 10)
+
+            mod = summ % 11
+            cdigit = 11 - mod
+            print(cdigit)
+
+            #################
+
+            if(arrival>= 8 and arrival<= 15):
+                if(cdigit == 4):
+                    discount= 0.9
+                else:
+                    discount=1
+
+                if(day == "Monday" and maxStay <= 2):
+                    pricephour= 10.00
+
+                elif(day == "Saturday" and maxStay <= 4):
+                    pricephour= 3.00
+
+                elif(day == "Sunday" and maxStay <= 8):
+                    pricephour= 2.00
+
+                else:
+                    print("Max hours allowed: Monday-2, Saturday-4, Sunday-8")
+                    continue
+
+            elif( maxStay <= 7 and (arrival >= 16 and arrival<= 23) ):
+
+                if(cdigit == 4):
+                    discount= 0.5
+                else:
+                    discount=1
+
+                pricephour= 2.00
+
+            else:
+                print("Parking closed between 00:00 and 07:59")
+                continue
+
+            difference=0
+            if((arrival+maxStay) >= 16):
+                maxStay = 16 - arrival
+
+            finalPrice = ((pricephour * maxStay)+2) * discount
+            print("Final Price of parking: ", finalPrice)
