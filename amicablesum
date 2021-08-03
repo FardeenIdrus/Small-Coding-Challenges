@@ -1,0 +1,18 @@
+def amicablesum(x):
+#array of length x, all elements are 0 
+	divisor = [0] * x
+	for i in range(1, len(divisor)):
+		for j in range(i * 2, len(divisor), i):
+			divisor[j] += i	
+	# Find all amicable pairs 
+	result = 0
+	for i in range(1, len(divisor)):
+		j = divisor[i]
+		if j != i and j < len(divisor) and divisor[j] == i:
+			result += i
+	return str(result)
+
+print(amicablesum(10000))
+
+#two different numbers-  that the sum of the proper divisors of each is equal to the other number.
+
