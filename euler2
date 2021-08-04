@@ -1,0 +1,15 @@
+#project euler 2
+#fibonnaci sequence
+
+sum = 0
+k= 1
+x = 1
+z= 0
+while sum < 4000000:
+    z = x+k
+    if z %2 ==0:
+        sum +=z
+    x=k
+    k=z
+print(sum)
+     
