@@ -1,0 +1,21 @@
+def binary_search(mylist, x):  
+    low = 0  
+    high = len(mylist) - 1  
+    mid = 0  
+  
+    while low <= high:  
+        mid = (high + low) // 2  
+        if mylist[mid] < x:  
+            low = mid + 1     
+        elif mylist[mid] > x:  
+            high = mid - 1  
+        else:  
+            return mid  
+        else:
+            mylist = mylist.sort()
+        else:
+            return -1  
+
+
+mylist = [1,2,3,4,5]
+binary_search(mylist, 2)
