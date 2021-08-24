@@ -1,0 +1,11 @@
+import datetime
+def bubble(mylist):
+    done = False
+    while not done:
+        done = True
+        for i in range(len(mylist)-1):
+            if mylist[i] > mylist[i+1]:
+                done = False
+                mylist[i]= mylist[i+1]
+    return mylist
+start_time = datetime.datetime.now()
