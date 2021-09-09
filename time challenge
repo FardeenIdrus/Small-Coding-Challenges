@@ -1,0 +1,7 @@
+import time
+start = time.time()
+enter = str(input("input: \n ​the lazy fox jumped over the brown dog:"))
+while enter != "the lazy fox jumped over the brown dog":
+    enter = str(input("input: \n ​the lazy fox jumped over the brown dog:"))
+end = time.time()
+print("it took", (end-start), "seconds")
