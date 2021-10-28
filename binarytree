@@ -1,0 +1,63 @@
+class Node:
+    def __init__(self,DataValue, LeftPointer=None, RightPointer=None):
+        self.DataValue = DataValue
+        self.LeftPointer = LeftPointer
+        self.RightPointer = RightPointer
+
+BinaryTree = []
+
+for i in range(0,12):
+    BinaryTree.append(Node(0))
+
+global NextNode
+NextNode = 0
+
+def CreateTree(NodeData):
+    global NextNode
+    BinaryTree[NextNode].DataValue = NodeData
+    NextNode = NextNode + 1
+
+def AttachLeft(NodeData, ParentNode):
+    global NextNode
+    BinaryTree[NextNode].DataValue = NodeData
+    BinaryTree[ParentNode].LeftPointer = NextNode
+    NextNode = NextNode + 1
+
+def AttachRight(NodeData, ParentNode):
+    global NextNode
+    BinaryTree[NextNode].DataValue = NodeData
+    BinaryTree[ParentNode].RightPointer = NextNode
+    NextNode = NextNode + 1
+    
+
+def print_tree(BinaryTree, Pointer):
+    while Pointer != None:
+        print(BinaryTree[Pointer].DataValue)
+        Pointer = BinaryTree[Pointer].LeftPointer
+
+def postorderleafchecker(BinaryTree, Pointer):
+    while Pointer != None:
+        if BinaryTree[BinaryTree[Pointer].LeftPointer] == -1:
+            if BinaryTree[BinaryTree[Pointer].RightPointer] == -1:
+                print(BinaryTree[Pointer].DataValue)
+        postorderleafchecker(BinaryTree[Pointer].LeftPointer)
+        postorderleafchecker(BinaryTree[Pointer].RIghtPointer)
+
+
+
+
+
+CreateTree("Red")
+AttachLeft("Blue", 0)
+AttachRight("Green", 0)
+AttachRight("Black", 2)
+AttachLeft("Brown", 2)
+AttachLeft("Peach", 3)
+AttachLeft("Yellow", 1)
+AttachRight("Purple", 1)
+AttachLeft("White", 6)
+AttachLeft("Pink", 7)
+AttachLeft("Grey", 9)
+AttachRight("Orange", 9)
+
+postorderleafchecker(BinaryTree, 0)
