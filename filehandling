@@ -1,0 +1,30 @@
+import pickle
+import datetime
+class student:
+    def __init__(self):
+        self.name = ""
+        self.registerNumber = 0
+        self.dateofBirth = datetime.datetime.now()
+        self.fulltime = True
+studentrecord = student()
+studentfile = open('students.DAT', 'w+b')
+print("please enter student details")
+studentrecord.name = input("please enter student name:")
+studentrecord.registernumber = int(input('enter reg number:'))
+year = int(input('enter year:'))
+month = int(input('enter month'))
+day = int(input('enter day:'))
+
+studentrecord.dateofbirth= datetime.datetime(year, month, day)
+studentrecord.fulltime = bool(input('enter true or false:'))
+pickle.dump (studentrecord, studentfile)
+print(studentrecord.name, studentrecord.registernumber, studentrecord.dateofbirth, studentrecord.fulltime)
+studentfile.close()
+studentfile = open('students.DAT', 'rb')
+studentrecord = pickle.load(studentfile)
+print(studentrecord.name, studentrecord.registernumber, studentrecord.dateofbirth, studentrecord.fulltime)
+studentfile.close()
+studentfile = open('students.DAT','rb')
+studentrecord = pickle.load(studentfile)
+print(studentrecord.name, studentrecord.registernumber, studentrecord.dateofbirth, studentrecord.fulltime)
+studentfile.close()
